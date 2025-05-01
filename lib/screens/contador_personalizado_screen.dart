@@ -1,3 +1,4 @@
+import 'package:contador_app/core/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class ContadorPersonalizado extends StatefulWidget {
@@ -31,11 +32,11 @@ class _ContadorPersonalizado extends State<ContadorPersonalizado> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xFF0D0D0D),
+        backgroundColor: AppColors.background,
         appBar: AppBar(
             title: Text('Contador Personalizado'),
-            backgroundColor: Color(0xFF8A2BE2),
-            foregroundColor: Colors.white,
+            backgroundColor: AppColors.buttonBackground,
+            foregroundColor: AppColors.background,
         ),
         body: Center(
             child: Column(
@@ -43,22 +44,35 @@ class _ContadorPersonalizado extends State<ContadorPersonalizado> {
                 children: [
                     Text(
                         'Contador:',
-                        style: TextStyle(fontSize: 24, color: Colors.white),
+                        style: TextStyle(fontSize: 70, color: AppColors.textColor),
                     ),
                     Text(
                         '$_contador',
-                        style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold, color: Colors.white),
+                        style: TextStyle(fontSize: 60, fontWeight: FontWeight.bold, color: AppColors.textColor),
                     ),
                     SizedBox(height: 30),
                     Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                            ElevatedButton(onPressed: _incrementar, style: ElevatedButton.styleFrom(backgroundColor: Color(0xFF00FFFF), foregroundColor: Color(0xFF0D0D0D)), child: Text('+'),),
-                            SizedBox(width: 20),
-                            ElevatedButton(onPressed: _decrementar, style: ElevatedButton.styleFrom(backgroundColor: Color(0xFF00FFFF), foregroundColor: Color(0xFF0D0D0D)), child: Text('-')),
-                            SizedBox(width: 20),
-                            ElevatedButton(onPressed: _resetear, style: ElevatedButton.styleFrom(backgroundColor: Color(0xFF00FFFF), foregroundColor: Color(0xFF0D0D0D)), child: Text('Reset')),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: SizedBox(height: 60, width: 150 ,child: ElevatedButton(onPressed: _incrementar, style: ElevatedButton.styleFrom(backgroundColor: AppColors.buttonBackground, foregroundColor: AppColors.background), child: Text('+'),)),
+                            ),
+                            SizedBox(width: 30),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: SizedBox(height: 60, width: 150 ,child: ElevatedButton(onPressed: _decrementar, style: ElevatedButton.styleFrom(backgroundColor: AppColors.buttonBackground, foregroundColor: AppColors.background), child: Text('-'))),
+                            ),
                         ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 16),
+                          child: SizedBox(height: 60, width: 350 ,child: ElevatedButton(onPressed: _resetear, style: ElevatedButton.styleFrom(backgroundColor: AppColors.buttonBackground, foregroundColor: AppColors.background), child: Text('Reset'))),
+                        )
+                      ],
                     )
                 ],
             ),
